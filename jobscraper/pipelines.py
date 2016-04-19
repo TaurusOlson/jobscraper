@@ -20,7 +20,8 @@ class SqlitePipeline(object):
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     company TEXT,
-    address TEXT,
+    zip_code TEXT,
+    city TEXT,
     salary TEXT,
     contract TEXT,
     url TEXT UNIQUE,
@@ -29,8 +30,8 @@ class SqlitePipeline(object):
     """
 
     INSERT_ROW_QUERY = """
-    INSERT INTO jobs(title, company, address, salary, contract, url, publication_date)
-    VALUES(?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO jobs(title, company, zip_code, city, salary, contract, url, publication_date)
+    VALUES(?, ?, ?, ?, ?, ?, ?, ?)
     """
 
     # TODO: Use from_crawler
@@ -50,7 +51,7 @@ class SqlitePipeline(object):
         self.conn.commit()
 
     def process_item(self, item, spider):
-        make_row = operator.itemgetter('title', 'company', 'address', 'salary', 'contract', 'url', 'publication_date')
+        make_row = operator.itemgetter('title', 'company', 'zip_code', 'city', 'salary', 'contract', 'url', 'publication_date')
         self._execute_query(SqlitePipeline.INSERT_ROW_QUERY, make_row(item))
         return item
 
