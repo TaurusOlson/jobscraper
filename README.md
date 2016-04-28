@@ -36,6 +36,13 @@ mais ajouter d'autres sites n'est pas difficile (cf [pyjobs/crawlers][crawlers])
     make remove_db
 
 
+## Installation
+
+Dans un environnement virtuel:
+
+    pip install -r requirements.txt
+
+
 ## Note
 
 **jobscraper** n'a pas la prétention d'être la solution ultime mais est avant
