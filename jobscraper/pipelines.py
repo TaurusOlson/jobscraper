@@ -51,7 +51,8 @@ class SqlitePipeline(object):
         self.conn.commit()
 
     def process_item(self, item, spider):
-        make_row = operator.itemgetter('title', 'company', 'zip_code', 'city', 'salary', 'contract', 'url', 'publication_date')
+        make_row = operator.itemgetter('title', 'company', 'zip_code', 'city',
+                'salary', 'contract', 'url', 'publication_date')
         self._execute_query(SqlitePipeline.INSERT_ROW_QUERY, make_row(item))
         return item
 
