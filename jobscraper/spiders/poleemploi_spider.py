@@ -49,6 +49,9 @@ class PoleEmploiSpider(scrapy.Spider):
             zip_code, city = None, address.strip().capitalize()
         return zip_code, city
 
+    def get_publication_date(self, selector):
+        pass
+
     def parse_job_page(self, job):
         jobscraper_item = JobScraperItem()
         jobscraper_item['title'] = job.css('h4[itemprop=title]::text').extract_first()
@@ -58,7 +61,7 @@ class PoleEmploiSpider(scrapy.Spider):
         jobscraper_item['zip_code'] = zip_code
         jobscraper_item['city'] = city
         jobscraper_item['publication_date'] = job.css('span[itemprop=datePosted]::text').extract_first() 
-        jobscraper_item['contract'] = job.css('td[itemprop=employmentType]::text').extract_first() 
+        jobscraper_item['contract'] = job.css('span[itemprop=employmentType]::text').extract_first() 
         jobscraper_item['salary'] = job.css('span[itemprop=baseSalary]::text').extract_first().strip() 
         jobscraper_item['company'] = job.css('p[class=description]::text').extract_first() 
         return jobscraper_item
