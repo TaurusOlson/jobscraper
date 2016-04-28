@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-poleemploi_spider
+poleemploi
 
 A spider for Pole Emploi
 
