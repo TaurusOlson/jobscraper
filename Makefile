@@ -7,8 +7,8 @@ create_db:
 	@cd jobscraper && scrapy crawl pole_emploi
 	@echo 'Created the database'
 
-clean_db:
-	@rm -r data/*.db
-	@echo 'Removed all databases.'
+remove_db:
+	@rm -r data/jobs.db
+	@echo 'Removed the database.'
 
 # vim:ft=make
