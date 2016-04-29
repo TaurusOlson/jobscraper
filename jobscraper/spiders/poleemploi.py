@@ -67,8 +67,19 @@ class PoleEmploiSpider(scrapy.Spider):
         return jobscraper_item
 
     def parse(self, response):
+        # Set the maximum number of job offers per page to 100
+        form_request = scrapy.FormRequest.from_response(response,
+                formxpath="//form[@id='ajouterAuClasseur']",
+                formdata={'nombreLignesMax': '100'},
+                callback=self.after_select_max_jobs)
+        yield form_request
+
+    def after_select_max_jobs(self, response):
         for jobs in response.css(PoleEmploiSpider.JOBS_CSS):
             for job in jobs.css('tr[itemtype="http://schema.org/JobPosting"]'):
                 url = self.get_url(job)
                 request = scrapy.Request(url, self.parse_job_page)
                 yield request
+
+
+

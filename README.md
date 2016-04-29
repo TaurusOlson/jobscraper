@@ -22,7 +22,7 @@ Les offres sont ensuite stockées en local dans une base SQLite (située dans
 * Actuellement **jobscraper** ne fonctionne qu'avec un seul site (Pole Emploi)
 mais ajouter d'autres sites n'est pas difficile (cf [pyjobs/crawlers][crawlers])
 
-* Le site de Pole Emploi ne permet d'afficher que 20 resultats maximum.
+* Le site de Pole Emploi ne permet d'afficher que 100 resultats maximum par page.
 
 
 ## Usage
