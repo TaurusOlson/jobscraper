@@ -49,9 +49,6 @@ class PoleEmploiSpider(scrapy.Spider):
             zip_code, city = None, address.strip().capitalize()
         return zip_code, city
 
-    def get_publication_date(self, selector):
-        pass
-
     def parse_job_page(self, job):
         jobscraper_item = JobScraperItem()
         jobscraper_item['title'] = job.css('h4[itemprop=title]::text').extract_first()
