@@ -29,17 +29,23 @@ mais ajouter d'autres sites n'est pas difficile (cf [pyjobs/crawlers][crawlers])
 
 * Extraire les données et créer/mettre à jour la base de données:
 
-    make create_db
+```shell
+make create_db
+```
 
 * Supprimer la base de données
 
-    make remove_db
+```shell
+make remove_db
+```
 
 * Par défaut, le mot clé utilisé pour la recherche est `python`. Celui-ci peut
 être modifié avec en lançant directement directement la ligne de commande avec
 `scrapy`:
 
-    scrapy crawl pole_emploi -a keyword=<mot clé>
+```shell
+scrapy crawl pole_emploi -a keyword=<mot clé>
+```
 
 
 ## Installation
