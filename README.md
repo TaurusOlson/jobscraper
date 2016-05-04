@@ -35,6 +35,12 @@ mais ajouter d'autres sites n'est pas difficile (cf [pyjobs/crawlers][crawlers])
 
     make remove_db
 
+* Par défaut, le mot clé utilisé pour la recherche est `python`. Celui-ci peut
+être modifié avec en lançant directement directement la ligne de commande avec
+`scrapy`:
+
+    scrapy crawl pole_emploi -a keyword=<mot clé>
+
 
 ## Installation
 
@@ -50,7 +56,7 @@ tout un projet personnel commencé parce que
 
 * j'étais frustré de parcourir des centaines d'offres dont la plupart ne
   correspondent pas à mon profil
-* j'avais du temps en fin d'après-midi et **scrapy** m'avait l'air sympa
+* j'avais du temps en fin d'après-midi et [scrapy][scrapy] m'avait l'air sympa
 
 
 ## Inspiration
@@ -63,3 +69,4 @@ oeil.
 [crawlers]: https://github.com/pyjobs/crawlers
 [pole_emploi]: http://www.pole-emploi.fr/accueil/
 [pyjobs]: http://pyjobs.fr/
+[scrapy]: http://scrapy.org/

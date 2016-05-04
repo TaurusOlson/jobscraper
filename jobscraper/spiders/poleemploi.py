@@ -17,12 +17,14 @@ from jobscraper.items import JobScraperItem
 
 class PoleEmploiSpider(scrapy.Spider):
     name = 'pole_emploi'
-    QUERY = 'python'
-    start_urls = ['http://candidat.pole-emploi.fr/candidat/rechercheoffres/resultats/A_{query}_FRANCE_01___P__________INDIFFERENT_______________________'.format(query=QUERY)]
     URL = u'http://candidat.pole-emploi.fr/'
-
-
     JOBS_CSS = 'div#offrescartezone div.result-page table.definition-table'
+
+    def __init__(self, keyword=''):
+        if not keyword:
+            keyword = 'python'
+
+        self.start_urls = ['http://candidat.pole-emploi.fr/candidat/rechercheoffres/resultats/A_{keyword}_FRANCE_01___P__________INDIFFERENT_______________________'.format(keyword=keyword)]
 
     def get_url(self, selector):
         url = selector.css('a::attr(href)').extract_first()
